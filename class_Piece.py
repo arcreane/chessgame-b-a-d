@@ -1,13 +1,13 @@
 import pygame as pg
 import os
 class Piece:
-    def __init__(self,position,color,type_piece,point,im):
+    def __init__(self,position,color,type_piece,point,imu):
         self.position = position
         self.color = color
 
         self.type_piece = type_piece
         self.point = point
-        self.im = im
+        self.im = imu
         id=[0]
         if self.color == 0:
             self.color = pg.Color('white')
@@ -17,7 +17,7 @@ class Piece:
 
     def isValidMove(newPosition, board):
         pass
-    #Override bizarre
+    #Override:lettre = type de pièce
     def __str__(self):
         self.ide = id
         if self.type_piece == 'King':
@@ -42,9 +42,10 @@ class King(Piece):
         pass
     def image(self):
         if self.color == 0:
-            self.im =pg.image.load(os.path.join('Kings','Kb.png')).convert()
+            self.imu =pg.image.load(os.path.join('Kings','Kb.png')).convert()
+            return self.imu
         elif self.color == 1:
-            self.im =pg.image.load('Kings\Kb.png').convert()
+            self.imu =pg.image.load('Kings\Kb.png').convert()
 
     #def isValidMove(newPosition,board):
     pass
@@ -68,7 +69,7 @@ if __name__ == "__main__":
     white_king = King((0, 0), 0,'Bishop',0,King.image)
     #print(white_king.color)
     print(white_king.type_piece)
-    print(white_king.im)
+    print(white_king.imu)
 
 
 

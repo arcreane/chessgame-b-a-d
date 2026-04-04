@@ -1,6 +1,7 @@
 import pygame as pg
-import sys
-import class_Piece as piece
+import sys,os
+import class_Piece as pc
+
 longueur= 400
 largeur = 400
 cote_l = longueur/8
@@ -12,6 +13,7 @@ background= pg.draw.rect(screen,(128,128,128),(0,0,longueur,largeur))
 clock.tick(60)
 l = longueur/8
 # Plateu généré mais par optimisé (Pas de proportionnalité avec la fenêtre)
+
 for i in range(0,8):
     m=l*i
     if i%2==0:
@@ -36,17 +38,18 @@ for i in range(0,8):
 
 
 
-
 #pg.draw.rect(screen,(255,255,255),(0,0,cote_l,cote_l),cl)
 #pg.draw.rect(screen,(0,0,0),(cote_l,0,cote_l,cote_l),cl)
 #pg.draw.rect(screen,(255,255,255),(cote_l*2,0,cote_l,cote_l),cl)
 #pg.draw.rect(screen,(255,255,255),(cote_l*3,0,cote_l,cote_l),cl)
-#im= pg.image.load('sources\Pb.png').convert()
+# Sans le .convert()
+im =pg.image.load(os.path.join('Kings','Kb.png'))
+ima=pg.transform.scale(im,(cote_l,cote_l))
 #im= pg.image.load('playertag.bmp').convert().set_colorkey('black')
 #piece= Piece(0,0,1,None,im)
+white_king = pc.King((cote_l*4, 0), 0,'Bishop',0,ima)
 
-
-screen.blit(piece.white_king.King.im,(60,60))
+screen.blit(ima,(white_king.position))
 pg.display.update()
 while True:
     for event in pg.event.get():
