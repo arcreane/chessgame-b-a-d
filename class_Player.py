@@ -8,12 +8,12 @@ class Player:
         if self.color== 0:
             self.color =(255,255,255)
     def askMove(self):
-        ask_user=input("Votre prochain mouvement ?")
+        self.ask_user=input("Votre prochain mouvement ?")
 
-        if ask_user == 0:
-            return "1"
+        if self.ask_user == 0:
+            print("1")
         else:
-            return ask_user,player_one.askMove()
+            return self.ask_user,player_one.askMove()
 
 
 coo=[]
@@ -24,7 +24,3 @@ print(coo)
 print(len(coo))
 player_one=Player('Simon',0)
 print(player_one.askMove())
-
-
-#l’emplacement de destination. Par exemple, si on reprend l’état initial de l’échiquier, alors les coups
-#suivants sont tous valides : « Nb1 Nc3 », « Pd1 Pd3 », « Pc1 Pc4 »
