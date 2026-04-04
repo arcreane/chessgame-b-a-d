@@ -7,7 +7,12 @@ largeur = 400
 cote_l = longueur/8
 width_rect = (cote_l)/2
 cl= int(width_rect)
-screen = pg.display.set_mode((longueur, largeur))
+#NE PAS TOUCHER à flags
+#flags = pg.FULLSCREEN
+flags = pg.RESIZABLE
+screen = pg.display.set_mode((longueur, largeur),flags,vsync=1)
+#Ne pas toucher
+#pg.display.toggle_fullscreen()
 clock = pg.time.Clock()
 background= pg.draw.rect(screen,(128,128,128),(0,0,longueur,largeur))
 clock.tick(60)
@@ -36,20 +41,18 @@ for i in range(0,8):
         pg.draw.rect(screen, (0, 0, 0), (m, 300, cote_l, cote_l), cl)
         pg.draw.rect(screen, (255, 255, 255), (m, 350, cote_l, cote_l), cl)
 
-
-
-#pg.draw.rect(screen,(255,255,255),(0,0,cote_l,cote_l),cl)
-#pg.draw.rect(screen,(0,0,0),(cote_l,0,cote_l,cote_l),cl)
-#pg.draw.rect(screen,(255,255,255),(cote_l*2,0,cote_l,cote_l),cl)
-#pg.draw.rect(screen,(255,255,255),(cote_l*3,0,cote_l,cote_l),cl)
 # Sans le .convert()
-im =pg.image.load(os.path.join('Kings','Kb.png'))
+#if __name__ == "__main__":
+im =pg.image.load(os.path.join('Kings','Kw.png'))
 ima=pg.transform.scale(im,(cote_l,cote_l))
-#im= pg.image.load('playertag.bmp').convert().set_colorkey('black')
-#piece= Piece(0,0,1,None,im)
-white_king = pc.King((cote_l*4, 0), 0,'Bishop',0,ima)
 
+white_king = pc.King((cote_l*3, 0), 0,'Bishop',0,ima)
+# un problème de gamma, les bords sont pas trop visibles
+#Positionne l'image white_king
 screen.blit(ima,(white_king.position))
+# get les dimensions de la fenêtre
+get_sizes=pg.display.get_desktop_sizes()
+print(get_sizes)
 pg.display.update()
 while True:
     for event in pg.event.get():

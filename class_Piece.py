@@ -40,12 +40,13 @@ class Piece:
 class King(Piece):
     def action(self):
         pass
-    def image(self):
-        if self.color == 0:
-            self.imu =pg.image.load(os.path.join('Kings','Kb.png')).convert()
-            return self.imu
-        elif self.color == 1:
-            self.imu =pg.image.load('Kings\Kb.png').convert()
+    #def image(self):
+        #if self.color == 0:
+        #    self.imu =pg.image.load(os.path.join('Kings','Kw.png')).convert()
+        #    return self.imu
+        #elif self.color == 1:
+        #    self.imu =pg.image.load(os.path.join('Kings','Kb.png')).convert()
+        #    return self.imu
 
     #def isValidMove(newPosition,board):
     pass
@@ -66,10 +67,10 @@ class Pawn(Piece):
     def action(self):
       pass
 if __name__ == "__main__":
-    white_king = King((0, 0), 0,'Bishop',0,King.image)
-    #print(white_king.color)
+    white_king=King((0,0),0,'Knight',0,None)
+    print(white_king.color)
     print(white_king.type_piece)
-    print(white_king.imu)
+   # print(white_king.imu)
 
 
 
