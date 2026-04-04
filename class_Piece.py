@@ -1,13 +1,17 @@
 import pygame as pg
+import os
 class Piece:
-    def __init__(self,position,color,image,type_piece,point):
+    def __init__(self,position,color,type_piece,point,im):
         self.position = position
         self.color = color
-        self.image = image
+
         self.type_piece = type_piece
+        self.point = point
+        self.im = im
         id=[0]
         if self.color == 0:
             self.color = pg.Color('white')
+
         if self.color == 1:
             self.color = (0, 0, 0)
 
@@ -33,12 +37,16 @@ class Piece:
         else:
             return 'Pièce inconnue'
 
-
 class King(Piece):
     def action(self):
         pass
-    #def isValidMove(newPosition,board):
+    def image(self):
+        if self.color == 0:
+            self.im =pg.image.load(os.path.join('Kings','Kb.png')).convert()
+        elif self.color == 1:
+            self.im =pg.image.load('Kings\Kb.png').convert()
 
+    #def isValidMove(newPosition,board):
     pass
 class Queen(Piece):
     def action(self):
@@ -57,11 +65,14 @@ class Pawn(Piece):
     def action(self):
       pass
 if __name__ == "__main__":
-    white_king = King((0, 0), 0, 1,'Bishop',0)
+    white_king = King((0, 0), 0,'Bishop',0,King.image)
     #print(white_king.color)
     print(white_king.type_piece)
-    print(white_king)
-    black_king = King((0, 0), 1, 1, None,0)
+    print(white_king.im)
+
+
+
+    #black_king = King((0, 0), 1, None,0)
     #print(black_king.color)
 
 
