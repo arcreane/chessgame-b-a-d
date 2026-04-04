@@ -1,5 +1,6 @@
 import pygame as pg
 import sys
+import class_Piece as piece
 longueur= 400
 largeur = 400
 cote_l = longueur/8
@@ -44,6 +45,8 @@ for i in range(0,8):
 #im= pg.image.load('playertag.bmp').convert().set_colorkey('black')
 #piece= Piece(0,0,1,None,im)
 
+
+screen.blit(piece.white_king.King.im,(60,60))
 pg.display.update()
 while True:
     for event in pg.event.get():
