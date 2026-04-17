@@ -1,7 +1,7 @@
 import pygame as pg
 import sys,os
 import class_test as pc
-
+pg.display.init()
 longueur= 400
 largeur = 400
 cote_l = longueur/8
@@ -9,8 +9,8 @@ width_rect = (cote_l)/2
 cl= int(width_rect)
 #NE PAS TOUCHER à flags
 #flags = pg.FULLSCREEN
-flags = pg.RESIZABLE
-screen = pg.display.set_mode((longueur, largeur),flags,vsync=1)
+flags = pg.RESIZABLE | pg.SCALED
+screen = pg.display.set_mode((longueur, largeur),flags)
 #Ne pas toucher
 #pg.display.toggle_fullscreen()
 clock = pg.time.Clock()
@@ -43,18 +43,20 @@ for i in range(0,8):
         pg.draw.rect(screen, (255, 255, 255), (m, 350, cote_l, cote_l), cl)
 
 # Sans le .convert()
-#if __name__ == "__main__":
-im =pg.image.load(os.path.join('Pions','Pw.png'))
-ima=pg.transform.scale(im,(cote_l,cote_l))
-# Pas optimiser pour l'instant
-white_pawn = pc.King((0, cote_l), 0,'Pawn',1,ima)
-white_pawn1 = pc.King((cote_l, cote_l), 0,'Pawn',1,ima)
-white_pawn2 = pc.King((cote_l*2, cote_l), 0,'Pawn',1,ima)
-white_pawn3 = pc.King((cote_l*3, cote_l), 0,'Pawn',1,ima)
-white_pawn4 = pc.King((cote_l*4, cote_l), 0,'Pawn',1,ima)
-white_pawn5 = pc.King((cote_l*5, cote_l), 0,'Pawn',1,ima)
-white_pawn6 = pc.King((cote_l*6, cote_l), 0,'Pawn',1,ima)
-white_pawn7 = pc.King((cote_l*7, cote_l), 0,'Pawn',1,ima)
+#
+if __name__ == "__main__":
+    im = pg.image.load(os.path.join('Pions', 'Pw.png'))
+    ima = pg.transform.scale(im, (cote_l, cote_l))
+    # Pas optimiser pour l'instant
+    white_pawn = pc.King((0, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn1 = pc.King((cote_l, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn2 = pc.King((cote_l * 2, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn3 = pc.King((cote_l * 3, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn4 = pc.King((cote_l * 4, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn5 = pc.King((cote_l * 5, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn6 = pc.King((cote_l * 6, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn7 = pc.King((cote_l * 7, cote_l), 0, 'Pawn', 1, ima)
+
 
 
 
@@ -74,11 +76,15 @@ screen.blit(ima,(white_pawn7.position))
 # get les dimensions de la fenêtre
 get_sizes=pg.display.get_desktop_sizes()
 print(get_sizes)
-pg.display.update()
-while True:
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            sys.exit()
+if __name__ == "__main__":
+    pg.display.update()
+    while True:
+        for event in pg.event.get():
+
+            if event.type == pg.QUIT:
+                sys.exit()
+            pg.display.update()
+
 
 
 
