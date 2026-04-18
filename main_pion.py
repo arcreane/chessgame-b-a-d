@@ -48,14 +48,14 @@ if __name__ == "__main__":
     im = pg.image.load(os.path.join('Pions', 'Pw.png'))
     ima = pg.transform.scale(im, (cote_l, cote_l))
     # Pas optimiser pour l'instant
-    white_pawn = pc.King((0, cote_l), 0, 'Pawn', 1, ima)
-    white_pawn1 = pc.King((cote_l, cote_l), 0, 'Pawn', 1, ima)
-    white_pawn2 = pc.King((cote_l * 2, cote_l), 0, 'Pawn', 1, ima)
-    white_pawn3 = pc.King((cote_l * 3, cote_l), 0, 'Pawn', 1, ima)
-    white_pawn4 = pc.King((cote_l * 4, cote_l), 0, 'Pawn', 1, ima)
-    white_pawn5 = pc.King((cote_l * 5, cote_l), 0, 'Pawn', 1, ima)
-    white_pawn6 = pc.King((cote_l * 6, cote_l), 0, 'Pawn', 1, ima)
-    white_pawn7 = pc.King((cote_l * 7, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn = pc.Pawn((0, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn1 = pc.Pawn((cote_l, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn2 = pc.Pawn((cote_l * 2, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn3 = pc.Pawn((cote_l * 3, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn4 = pc.Pawn((cote_l * 4, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn5 = pc.Pawn((cote_l * 5, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn6 = pc.Pawn((cote_l * 6, cote_l), 0, 'Pawn', 1, ima)
+    white_pawn7 = pc.Pawn((cote_l * 7, cote_l), 0, 'Pawn', 1, ima)
 
 
 

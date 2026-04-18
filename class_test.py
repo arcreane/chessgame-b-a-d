@@ -37,7 +37,7 @@ class Piece:
         else:
             return 'Pièce inconnue'
 
-class King(Piece):
+class Pawn(Piece):
     def action(self):
         pass
     #def image(self):
@@ -50,12 +50,7 @@ class King(Piece):
 
     #def isValidMove(newPosition,board):
     pass
-class Queen(Piece):
-    def action(self):
-       pass
-class Bishop(Piece):
-    def action(self):
-       pass
+
 class Knight(Piece):
     def action(self):
       pass
@@ -63,13 +58,13 @@ class Rook(Piece):
     def action(self):
        pass
 
-class Pawn(Piece):
+class King(Piece):
     def action(self):
       pass
 
       pass
 if __name__ == "__main__":
-    white_pika=King((0,0),0,'Pawn',1,None)
+    white_pika=Pawn((0,0),0,'Pawn',1,None)
     print(white_pika.color)
     print(white_pika.type_piece)
    # print(white_king.imu)
