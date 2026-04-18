@@ -51,18 +51,7 @@ class Pawn(Piece):
     #def isValidMove(newPosition,board):
     pass
 
-class Knight(Piece):
-    def action(self):
-      pass
-class Rook(Piece):
-    def action(self):
-       pass
 
-class King(Piece):
-    def action(self):
-      pass
-
-      pass
 if __name__ == "__main__":
     white_pika=Pawn((0,0),0,'Pawn',1,None)
     print(white_pika.color)
