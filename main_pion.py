@@ -7,8 +7,6 @@ largeur = 400
 cote_l = longueur/8
 width_rect = (cote_l)/2
 cl= int(width_rect)
-#NE PAS TOUCHER à flags
-#flags = pg.FULLSCREEN
 flags = pg.RESIZABLE | pg.SCALED
 screen = pg.display.set_mode((longueur, largeur),flags)
 #Ne pas toucher
@@ -43,7 +41,7 @@ for i in range(0,8):
         pg.draw.rect(screen, (255, 255, 255), (m, 350, cote_l, cote_l), cl)
 
 # Sans le .convert()
-#
+
 if __name__ == "__main__":
     im = pg.image.load(os.path.join('Pions', 'Pw.png'))
     ima = pg.transform.scale(im, (cote_l, cote_l))
@@ -57,8 +55,7 @@ if __name__ == "__main__":
     white_pawn6 = pc.Pawn((cote_l * 6, cote_l), 0, 'Pawn', 1, ima)
     white_pawn7 = pc.Pawn((cote_l * 7, cote_l), 0, 'Pawn', 1, ima)
 
-
-
+origin =(0,0)
 
 # un problème de gamma, les bords sont pas trop visibles
 #Positionne l'image white_pawn
@@ -73,7 +70,7 @@ screen.blit(ima,(white_pawn6.position))
 screen.blit(ima,(white_pawn7.position))
 if __name__ == "__main__":
     # mouse au milieu de la fenêtre + get position
-    pg.mouse.set_pos((0, 0))
+    axe=pg.mouse.set_pos(origin)
     mouse_x_y = pg.mouse.get_pos()
     print(mouse_x_y)
 
@@ -87,9 +84,13 @@ if __name__ == "__main__":
 
             if event.type == pg.QUIT:
                 sys.exit()
-            if event.type == pg.MOUSEBUTTONDOWN:
-                qqq=pg.mouse.get_rel()
-                print(qqq)
+            if __name__ == "__main__":
+                if event.type == pg.MOUSEBUTTONDOWN:
+                    qqq = pg.mouse.get_rel()
+                    print(qqq)
+                    if qqq == origin:
+                       pass
+
             if event.type == pg.MOUSEWHEEL:
                 print("o")
 
