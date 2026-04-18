@@ -12,7 +12,8 @@ class Bishop(Piece):
         ]
 
         for dx, dy in directions:
-            nx, ny = x + dx, y + dy
+            nx = x + dx
+            ny = y + dy
             
             while board.is_inside(nx, ny):
                 piece = board.get_piece(nx, ny)
