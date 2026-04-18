@@ -4,11 +4,9 @@ class Piece:
     def __init__(self,position,color,type_piece,point,imu):
         self.position = position
         self.color = color
-
         self.type_piece = type_piece
         self.point = point
-        self.im = imu
-        id=[0]
+        self.imu = imu
         if self.color == 0:
             self.color = pg.Color('white')
 
@@ -19,34 +17,31 @@ class Piece:
         pass
     #Override:lettre = type de pièce
     def __str__(self):
-        self.ide = id
         if self.type_piece == 'King':
-            self.ide='K'
-            return f'{self.ide}'
+            ide = 'K'
+            return ide
         elif self.type_piece == 'Queen':
-            return str('Q')
+            ide = 'Q'
+            return ide
         elif self.type_piece == 'Bishop':
-            self.ide ='B'
-            return str(self.ide)
+            ide = 'B'
+            return ide
         elif self.type_piece == 'Rook':
-            return str('R')
+            ide = 'R'
+            return ide
         elif self.type_piece == 'Knight':
-            return 'N'
+            ide = 'K'
+            return ide
         elif self.type_piece == 'Pawn':
-            return 'P'
+            ide ='P'
+            return ide
         else:
             return 'Pièce inconnue'
 
 class Pawn(Piece):
     def action(self):
         pass
-    #def image(self):
-        #if self.color == 0:
-        #    self.imu =pg.image.load(os.path.join('Kings','Kw.png')).convert()
-        #    return self.imu
-        #elif self.color == 1:
-        #    self.imu =pg.image.load(os.path.join('Kings','Kb.png')).convert()
-        #    return self.imu
+
 
     #def isValidMove(newPosition,board):
     pass
@@ -54,13 +49,19 @@ class Pawn(Piece):
 
 if __name__ == "__main__":
     white_pika=Pawn((0,0),0,'Pawn',1,None)
-    print(white_pika.color)
+    black_pika = Pawn((0, 0), 1, 'Pawn', 1, None)
+
+    # Test couleur, var color = 0 implique blanc et 1 implique noir
+    print(f"{white_pika.color} est la couleur")
+    print(f"{black_pika.color} est la couleur")
+
+    # Tester l'override pièce= lettre
     print(white_pika.type_piece)
-   # print(white_king.imu)
+    print(white_pika.__str__())
+    if white_pika.__str__() == 'P':
+        print('ok')
+    else:
+        print('not ok')
 
-
-
-    #black_king = King((0, 0), 1, None,0)
-    #print(black_king.color)
 
 
