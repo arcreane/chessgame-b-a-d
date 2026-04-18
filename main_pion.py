@@ -71,7 +71,11 @@ screen.blit(ima,(white_pawn4.position))
 screen.blit(ima,(white_pawn5.position))
 screen.blit(ima,(white_pawn6.position))
 screen.blit(ima,(white_pawn7.position))
-
+if __name__ == "__main__":
+    # mouse au milieu de la fenêtre + get position
+    pg.mouse.set_pos((0, 0))
+    mouse_x_y = pg.mouse.get_pos()
+    print(mouse_x_y)
 
 # get les dimensions de la fenêtre
 get_sizes=pg.display.get_desktop_sizes()
@@ -83,6 +87,12 @@ if __name__ == "__main__":
 
             if event.type == pg.QUIT:
                 sys.exit()
+            if event.type == pg.MOUSEBUTTONDOWN:
+                qqq=pg.mouse.get_rel()
+                print(qqq)
+            if event.type == pg.MOUSEWHEEL:
+                print("o")
+
             pg.display.update()
 
 
