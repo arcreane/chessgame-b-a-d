@@ -1,5 +1,6 @@
 import pygame as pg
 import sys
+import timer
 longueur= 800
 largeur = 800
 cote_l = longueur/8
@@ -31,7 +32,8 @@ class Pion(Piece):
 #im= pg.image.load('sources\Pb.png').convert()
 #im= pg.image.load('playertag.bmp').convert().set_colorkey('black')
 #piece= Piece(0,0,1,None,im)
-
+time=timer.Time(30)
+time.run()
 pg.display.update()
 while True:
     for event in pg.event.get():
