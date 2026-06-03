@@ -1,0 +1,32 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ===== Environnements virtuels =====
+.venv/
+venv/
+env/
+ENV/
+
+# ===== Tests / couverture =====
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ===== IDE / Editeurs =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== Systeme =====
+.DS_Store
+Thumbs.db
