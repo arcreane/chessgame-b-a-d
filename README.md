@@ -55,6 +55,5 @@ Une fenetre de 800x800 pixels intitulee "Chess" s'ouvre. Cliquez sur une piece e
 
 ## Auteurs
 
-Projet de groupe -- voir l'historique des commits et les contributeurs sur GitHub.
-
+Mausse Noah 
               
